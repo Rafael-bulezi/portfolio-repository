@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Bulezi | Creative Technologist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Added Blanka from CDNFonts -->
+    <link href="https://fonts.cdnfonts.com/css/blanka" rel="stylesheet">
+    <!-- Added Rajdhani, Marck Script, and Sirin Stencil -->
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Playfair+Display:ital,wght@0,400;1,400&family=Rajdhani:wght@300;400;500;600;700&family=Sirin+Stencil&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'], // Alternative for Capsule X
+                        display: ['Blanka', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        cursive: ['Marck Script', 'cursive'],
+                        stencil: ['Sirin Stencil', 'sans-serif'], // Added for work subheaders
+                    },
+                    colors: {
+                        dark: 'var(--bg-primary)',
+                        light: 'var(--text-primary)',
+                        grid: 'var(--color-grid)',
+                        lines: 'var(--color-line)',
+                        card: 'var(--bg-card)',
+                        white: 'var(--color-white)',
+                        black: 'var(--color-black)',
+                    },
+                    backgroundImage: {
+                        'grid-lines': 'linear-gradient(to right, var(--color-line) 1px, transparent 1px)',
+                    },
+                    backgroundSize: {
+                        'grid-cols-6': '16.666% 100%',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            /* Dark Theme Only */
+            --bg-primary: #0A0A0A;
+            --text-primary: #E6E6E6;
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-grid: #262626;
+            --color-line: rgba(255, 255, 255, 0.04);
+            --bg-card: rgba(255, 255, 255, 0.02);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            cursor: none; /* Hide default cursor */
+            font-family: 'Rajdhani', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        /* Restore cursor on touch devices */
+        @media (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+        }
+
+        .grid-bg {
+            background-image: linear-gradient(to right, var(--color-line) 1px, transparent 1px);
+            background-size: 16.666% 100%;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #8B0000;
+            border-radius: 4px;
+            border: 1px solid var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #FF0000;
+        }
+
+        .text-huge {
+            /* Reduced clamp max size from 16rem to 11rem */
+            font-size: clamp(3rem, 10vw, 11rem);
+            line-height: 0.85;
+        }
+
+        /* Hover effect for links */
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .writing-vertical {
+            writing-mode: vertical-rl;
+        }
+
+        /* Animation Keyframes */
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-reveal {
+            animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+            50% { text-shadow: 0 0 20px rgba(255,255,255,0.8); }
+        }
+        .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased relative overflow-x-hidden bg-dark selection:bg-white selection:text-black">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
