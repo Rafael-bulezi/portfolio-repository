@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowUp } from 'lucide-react';
-import CustomCursor from './components/CustomCursor';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import Capabilities from './components/Capabilities';
-import CapabilitiesDetail from './components/CapabilitiesDetail';
-import SelectedWork from './components/SelectedWork';
-import AdditionalWork from './components/AdditionalWork';
-import Contact from './components/Contact';
-import ScrollProgress from './components/ScrollProgress';
-import ProjectDetail from './components/ProjectDetail';
+import CustomCursor from './CustomCursor';
+import Navigation from './Navigation';
+import Hero from './Hero';
+import Capabilities from './Capabilities';
+import CapabilitiesDetail from './CapabilitiesDetail';
+import SelectedWork from './SelectedWork';
+import AdditionalWork from './AdditionalWork';
+import Contact from './Contact';
+import ScrollProgress from './ScrollProgress';
+import ProjectDetail from './ProjectDetail';
 
 // Define the shape of project data
 export interface ProjectData {
